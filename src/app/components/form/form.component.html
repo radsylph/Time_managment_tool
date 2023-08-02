@@ -1,0 +1,19 @@
+<form action="">
+  <div class="">
+    <ng-container *ngFor="let tag of tags">
+      <input
+        *ngIf="tag.element === 'input'"
+        [id]="tag.id"
+        [placeholder]="tag.name"
+        [type]="tag.type"
+        #dynamicInputs
+        class=""
+      />
+      <button *ngIf="tag.element === 'button'" [id]="tag.id" [type]="tag.type">
+        {{ tag.name }}
+      </button>
+    </ng-container>
+  </div>
+</form>
+
+<button (click)="test1()">test</button>
