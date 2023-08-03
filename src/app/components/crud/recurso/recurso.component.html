@@ -1,0 +1,59 @@
+<div class="form-container">
+  <form>
+    <div class="input-grid">
+      <div class="input-container p-float-label">
+        <input
+          type="number"
+          pInputText
+          name="manualId"
+          [(ngModel)]="nuevoRecurso.id"
+        />
+        <label for="manualId">ID Manual:</label>
+      </div>
+
+      <div class="input-container p-float-label">
+        <input
+          pInputText
+          type="text"
+          [(ngModel)]="nuevoRecurso.nombre"
+          name="nombre"
+        />
+        <label for="nombre">Nombre:</label>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button
+        pButton
+        type="button"
+        (click)="agregarRecurso()"
+        label="Agregar"
+      ></button>
+      <button
+        pButton
+        type="button"
+        (click)="obtenerRecursos()"
+        label="Ver"
+      ></button>
+      <button
+        pButton
+        type="button"
+        (click)="actualizarRecurso()"
+        label="Actualizar"
+      ></button>
+      <button
+        pButton
+        type="button"
+        (click)="eliminarRecurso()"
+        label="Eliminar"
+      ></button>
+    </div>
+  </form>
+
+  <div class="table-container">
+    <div class="table-wrapper">
+      <app-tabla [recursos]="recursosMostrar"></app-tabla>
+    </div>
+  </div>
+  <div class="card"><p-messages></p-messages></div>
+</div>
