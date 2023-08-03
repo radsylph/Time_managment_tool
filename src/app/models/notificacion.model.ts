@@ -6,3 +6,4 @@ export interface Notificacion {
   fecha: Date;
   avance: number;
 }
+  

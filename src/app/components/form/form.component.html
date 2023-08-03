@@ -1,52 +1,269 @@
-<div class="form-container">
-  <form>
-    <div class="input-grid">
-      <div class="input-container">
-        <label for="manualId">ID Manual:</label>
-        <input
-          type="number"
-          pInputText
-          name="manualId"
-          [(ngModel)]="manualId"
-        />
+<!-- <app-select (tablaSeleccionada)="tablaActual = $event"></app-select>
+
+<ng-container *ngIf="tablaActual == 'Recurso'">
+  <div class="form-container">
+    <form>
+      <div class="input-grid">
+        <div class="input-container p-float-label">
+          <input
+            type="number"
+            pInputText
+            name="manualId"
+            [(ngModel)]="manualId"
+          />
+          <label for="manualId">ID Manual:</label>
+        </div>
+
+        <div class="input-container p-float-label">
+          <input
+            pInputText
+            type="text"
+            [(ngModel)]="nuevoRecurso.nombre"
+            name="nombre"
+          />
+          <label for="nombre">Nombre:</label>
+        </div>
       </div>
 
-      <div class="input-container">
-        <label for="nombre">Nombre:</label>
-        <input
-          pInputText
-          type="text"
-          [(ngModel)]="nuevoRecurso.nombre"
-          name="nombre"
-        />
+      <div class="button-container">
+        <button
+          pButton
+          type="button"
+          (click)="agregarRecurso()"
+          label="Agregar"
+        ></button>
+        <button
+          pButton
+          type="button"
+          (click)="obtenerRecursos()"
+          label="Ver"
+        ></button>
+        <button
+          pButton
+          type="button"
+          (click)="actualizarRecurso()"
+          label="Actualizar"
+        ></button>
+        <button
+          pButton
+          type="button"
+          (click)="eliminarRecurso()"
+          label="Eliminar"
+        ></button>
       </div>
-    </div>
+    </form>
+  </div>
+</ng-container>
+<ng-container>
+  
+</ng-container> -->
 
-    <div class="button-container">
-      <button
-        pButton
-        type="button"
-        (click)="agregarRecurso()"
-        label="Agregar"
-      ></button>
-      <button
-        pButton
-        type="button"
-        (click)="obtenerRecursos()"
-        label="Ver"
-      ></button>
-      <button
-        pButton
-        type="button"
-        (click)="actualizarRecurso()"
-        label="Actualizar"
-      ></button>
-      <button
-        pButton
-        type="button"
-        (click)="eliminarRecurso()"
-        label="Eliminar"
-      ></button>
-    </div>
-  </form>
-</div>
+<!-- <ng-container *ngIf="tablaActual == 'Recurso'"> -->
+<ng-container *ngIf="Crud == 'recurso'">
+  <div class="form-container">
+    <form>
+      <div class="input-grid">
+        <div class="input-container p-float-label">
+          <input
+            type="number"
+            pInputText
+            name="manualId"
+            [(ngModel)]="nuevoRecurso.id"
+          />
+          <label for="manualId">ID Manual:</label>
+        </div>
+
+        <div class="input-container p-float-label">
+          <input
+            pInputText
+            type="text"
+            [(ngModel)]="nuevoRecurso.nombre"
+            name="nombre"
+          />
+          <label for="nombre">Nombre:</label>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <button
+          pButton
+          type="button"
+          (click)="agregarRecurso()"
+          label="Agregar"
+        ></button>
+        <button
+          pButton
+          type="button"
+          (click)="obtenerRecursos()"
+          label="Ver"
+        ></button>
+        <button
+          pButton
+          type="button"
+          (click)="actualizarRecurso()"
+          label="Actualizar"
+        ></button>
+        <button
+          pButton
+          type="button"
+          (click)="eliminarRecurso()"
+          label="Eliminar"
+        ></button>
+      </div>
+    </form>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="Crud == 'proyecto'">
+  <div class="form-container">
+    <form>
+      <div class="input-grid">
+        <div class="input-container p-float-label">
+          <input
+            type="number"
+            pInputText
+            name="manualId"
+            [(ngModel)]="nuevoProyecto.id"
+          />
+          <label for="manualId">ID Manual:</label>
+        </div>
+
+        <div class="input-container p-float-label">
+          <input
+            pInputText
+            type="text"
+            [(ngModel)]="nuevoProyecto.nombre"
+            name="nombre"
+          />
+          <label for="nombre">Nombre Del Proyecto:</label>
+        </div>
+        <p-calendar
+          [(ngModel)]="nuevoProyecto.fechaInicio"
+          dateFormat="dd/mm/yy"
+          name="fechaInicio"
+        ></p-calendar>
+      </div>
+
+      <div class="button-container">
+        <button
+          pButton
+          type="button"
+          label="Crear"
+          (click)="agregarProyecto()"
+        ></button>
+        <button
+          pButton
+          type="button"
+          label="Ver"
+          (click)="obtenerProyectos()"
+        ></button>
+        <button
+          pButton
+          type="button"
+          label="Actualizar"
+          (click)="actualizarProyecto()"
+        ></button>
+        <button
+          pButton
+          type="button"
+          label="Eliminar"
+          (click)="eliminarProyecto()"
+        ></button>
+      </div>
+    </form>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="Crud == 'notificacion'">
+  <div class="form-container">
+    <form>
+      <div class="input-grid">
+        <div class="input-container p-float-label">
+          <input
+            type="number"
+            pInputText
+            name="manualId"
+            [(ngModel)]="nuevoNotificacion.id"
+          />
+          <label for="manualId">ID notificacion</label>
+        </div>
+
+        <div class="input-container p-float-label">
+          <input
+            pInputText
+            type="number"
+            [(ngModel)]="nuevoNotificacion.proyectoId"
+            name="proyectoId"
+          />
+          <label for="proyectoId">ID Del Proyecto:</label>
+        </div>
+
+        <div class="input-container p-float-label">
+          <input
+            pInputText
+            type="number"
+            [(ngModel)]="nuevoNotificacion.recursoId"
+            name="recursoId"
+          />
+          <label for="recursoId">ID Del Proyecto:</label>
+        </div>
+
+        <div class="input-container p-float-label">
+          <input
+            pInputText
+            type="number"
+            [(ngModel)]="nuevoNotificacion.avance"
+            name="avance"
+          />
+          <label for="avance">avance:</label>
+        </div>
+
+        <div class="input-container p-float-label">
+          <input
+            pInputText
+            type="number"
+            [(ngModel)]="nuevoNotificacion.tiempoDedicado"
+            name="tiempoDedicado"
+          />
+          <label for="tiempoDedicado">tiempo Dedicado:</label>
+        </div>
+
+        <div class="">
+          <label for="fecha">fecha:</label>
+          <p-calendar
+            [(ngModel)]="nuevoNotificacion.fecha"
+            dateFormat="dd/mm/yy"
+            name="fecha"
+          ></p-calendar>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <button
+          pButton
+          type="button"
+          label="Crear"
+          (click)="agregarNotificacion()"
+        ></button>
+        <button
+          pButton
+          type="button"
+          label="Ver"
+          (click)="obtenerNotificaciones()"
+        ></button>
+        <button
+          pButton
+          type="button"
+          label="Actualizar"
+          (click)="actualizarNotificacion()"
+        ></button>
+        <button
+          pButton
+          type="button"
+          label="Eliminar"
+          (click)="eliminarNotificacion()"
+        ></button>
+      </div>
+    </form>
+  </div>
+</ng-container>
