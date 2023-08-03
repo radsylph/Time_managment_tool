@@ -11,20 +11,34 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-import { SelectComponent } from './components/select/select.component';
+import { TableModule } from 'primeng/table';
+
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { MenubarModule } from 'primeng/menubar';
+import { MessagesModule } from 'primeng/messages';
+import { RecursoComponent } from './components/crud/recurso/recurso.component';
+import { ProyectoComponent } from './components/crud/proyecto/proyecto.component';
+import { NotificacionComponent } from './components/crud/notificacion/notificacion.component';
+import { TablaComponent } from './components/tabla/tabla.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/recurso', pathMatch: 'full' },
   { path: 'recurso', component: FormComponent },
   { path: 'proyecto', component: FormComponent },
   { path: 'notificacion', component: FormComponent },
 ];
 
 @NgModule({
-  declarations: [AppComponent, DialogComponent, FormComponent, SelectComponent],
+  declarations: [
+    AppComponent,
+    DialogComponent,
+    FormComponent,
+    RecursoComponent,
+    ProyectoComponent,
+    NotificacionComponent,
+    TablaComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -38,6 +52,8 @@ export const routes: Routes = [
     DropdownModule,
     CalendarModule,
     MenubarModule,
+    MessagesModule,
+    TableModule,
   ],
   exports: [RouterModule],
   providers: [],
