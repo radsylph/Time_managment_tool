@@ -1,6 +1,8 @@
-<nav class="app-navbar">
-  <a routerLink="recurso" class="navbar-link">recurso</a>
-  <a routerLink="proyecto" class="navbar-link">proyecto</a>
-  <a routerLink="notificacion" class="navbar-link">notificacion</a>
-</nav>
-<router-outlet></router-outlet>
+
+<div class="app-navbar">
+  <p-menubar [model]="menuItems"></p-menubar>
+</div>
+
+<div class="app-content">
+  <router-outlet></router-outlet>
+</div>

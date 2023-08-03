@@ -6,27 +6,34 @@ body {
 }
 
 /* Estilos para el Navbar */
-::ng-deep .app-navbar {
+.app-navbar {
   background-color: #1c2833;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0; /* Añadido un poco de espacio arriba y abajo */
 }
 
-::ng-deep .navbar-link {
+.navbar-link {
   color: #ecf0f1;
   text-decoration: none;
   padding: 1rem 2rem;
   transition: background-color 0.3s ease-in-out;
 }
 
-::ng-deep .navbar-link:hover {
-  background-color: #34495e !important;
-}
-
-::ng-deep .p-menuitem-text {
-  font-weight: bold;
-  margin-left: 0.5rem;
+.navbar-link:hover {
+  background-color: #34495e;
 }
 
 /* Estilos para resaltar el ítem activo en el Navbar */
-::ng-deep .p-menuitem-active {
-  background-color: #34495e !important;
+.navbar-link.active {
+  background-color: #34495e;
+}
+
+/* Estilos para el contenido */
+.app-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  height: calc(100vh - 70px); /* Tamaño del contenido menos el Navbar */
 }

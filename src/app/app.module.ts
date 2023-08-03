@@ -14,6 +14,7 @@ import { ButtonModule } from 'primeng/button';
 import { SelectComponent } from './components/select/select.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
+import { MenubarModule } from 'primeng/menubar';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -36,6 +37,7 @@ export const routes: Routes = [
     ButtonModule,
     DropdownModule,
     CalendarModule,
+    MenubarModule,
   ],
   exports: [RouterModule],
   providers: [],
