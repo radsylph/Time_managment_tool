@@ -1,0 +1,65 @@
+<div class="form-container">
+  <form>
+    <div class="input-grid">
+      <div class="input-container p-float-label">
+        <input
+          type="number"
+          pInputText
+          name="manualId"
+          [(ngModel)]="nuevoProyecto.id"
+        />
+        <label for="manualId">ID Manual:</label>
+      </div>
+
+      <div class="input-container p-float-label">
+        <input
+          pInputText
+          type="text"
+          [(ngModel)]="nuevoProyecto.nombre"
+          name="nombre"
+        />
+        <label for="nombre">Nombre Del Proyecto:</label>
+      </div>
+      <p-calendar
+        [(ngModel)]="nuevoProyecto.fechaInicio"
+        dateFormat="dd/mm/yy"
+        name="fechaInicio"
+      ></p-calendar>
+    </div>
+
+    <div class="button-container">
+      <button
+        pButton
+        type="button"
+        label="Crear"
+        (click)="agregarProyecto()"
+      ></button>
+      <button
+        pButton
+        type="button"
+        label="Ver"
+        (click)="obtenerProyectos()"
+      ></button>
+      <button
+        pButton
+        type="button"
+        label="Actualizar"
+        (click)="actualizarProyecto()"
+      ></button>
+      <button
+        pButton
+        type="button"
+        label="Eliminar"
+        (click)="eliminarProyecto()"
+      ></button>
+    </div>
+  </form>
+</div>
+
+<div class="table-container">
+  <div class="table-wrapper">
+    <app-tabla [recursos]="recursosMostrar"></app-tabla>
+  </div>
+</div>
+
+<div class="card"><p-messages></p-messages></div>
