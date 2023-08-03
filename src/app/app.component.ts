@@ -13,16 +13,28 @@ import { Tags } from './models/tag.model';
 })
 export class AppComponent {
   title = 'Time_managment_tool';
-  tags: Tags[] = [
-    { name: 'nombre', element: 'input', id: 'id1', type: 'text' },
-    { name: 'apellido', element: 'input', id: 'id2', type: 'text' },
-    { name: 'edad', element: 'input', id: 'id3', type: 'number' },
-    { name: 'fecha', element: 'input', id: 'id4', type: 'date' },
-    {
-      name: 'nose',
-      element: 'input',
-      id: 'id5 ',
-      type: 'submit',
-    },
-  ];
+  tags: Tags[] = [];
+  context: Tags[] = [];
+  
+  changeForm() {
+    // this.context = [
+    //   { name: 'nombre', element: 'input', id: 'id1', type: 'text' },
+    //   { name: 'apellido', element: 'input', id: 'id2', type: 'text' },
+    //   { name: 'edad', element: 'input', id: 'id3', type: 'number' },
+    //   { name: 'fecha', element: 'input', id: 'id4', type: 'date' },
+    //   {
+    //     name: 'nose',
+    //     element: 'input',
+    //     id: 'id5 ',
+    //     type: 'submit',
+    //   },
+    // ];
+    // this.tags = this.context;
+  
+  }
+
+
+
+  
+
 }
