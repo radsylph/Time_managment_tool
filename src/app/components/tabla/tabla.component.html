@@ -1,0 +1,20 @@
+<div class="table-container flex">
+  <div class="table-wrapper">
+    <p-table [value]="recursos">
+      <ng-template pTemplate="header">
+        <tr>
+          <th *ngFor="let key of getColumnKeys()">
+            {{ key }}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-recurso>
+        <tr>
+          <td *ngFor="let key of getColumnKeys()">
+            {{ recurso[key] }}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
