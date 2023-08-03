@@ -2,11 +2,8 @@
 @import "primeng/resources/primeng.css";
 
 /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRhaWx3aW5kLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJzdHlsZXMuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiICAgIFxyXG4iXX0= */
-html,
-body {
-  height: 100%;
-}
-body {
+html,body {
   margin: 0;
+  height: 100%;
   font-family: var(--font-family);
 }
