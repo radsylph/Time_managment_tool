@@ -1,19 +1,52 @@
-<form action="">
-  <div class="">
-    <ng-container *ngFor="let tag of tags">
-      <input
-        *ngIf="tag.element === 'input'"
-        [id]="tag.id"
-        [placeholder]="tag.name"
-        [type]="tag.type"
-        #dynamicInputs
-        class=""
-      />
-      <button *ngIf="tag.element === 'button'" [id]="tag.id" [type]="tag.type">
-        {{ tag.name }}
-      </button>
-    </ng-container>
-  </div>
-</form>
+<div class="form-container">
+  <form>
+    <div class="input-grid">
+      <div class="input-container">
+        <label for="manualId">ID Manual:</label>
+        <input
+          type="number"
+          pInputText
+          name="manualId"
+          [(ngModel)]="manualId"
+        />
+      </div>
 
-<button (click)="test1()">test</button>
+      <div class="input-container">
+        <label for="nombre">Nombre:</label>
+        <input
+          pInputText
+          type="text"
+          [(ngModel)]="nuevoRecurso.nombre"
+          name="nombre"
+        />
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button
+        pButton
+        type="button"
+        (click)="agregarRecurso()"
+        label="Agregar"
+      ></button>
+      <button
+        pButton
+        type="button"
+        (click)="obtenerRecursos()"
+        label="Ver"
+      ></button>
+      <button
+        pButton
+        type="button"
+        (click)="actualizarRecurso()"
+        label="Actualizar"
+      ></button>
+      <button
+        pButton
+        type="button"
+        (click)="eliminarRecurso()"
+        label="Eliminar"
+      ></button>
+    </div>
+  </form>
+</div>
