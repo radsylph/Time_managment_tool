@@ -5,7 +5,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButton } from '@angular/material/button';
 import { FormComponent } from './components/form/form.component';
 import { Tags } from './models/tag.model';
-import { MenubarModule } from 'primeng/menubar';
+  import { MenubarModule } from 'primeng/menubar'; 
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -52,8 +52,13 @@ export class AppComponent {
           {
             label: 'Proyectos',
             icon: 'pi pi-briefcase',
-            routerLink: 'progreso',
+            routerLink: 'tiempo1',
           },
+          {
+            label: 'Recursos',
+            icon: 'pi pi-user',
+            routerLink: 'tiempo2',
+          }
         ],
       },
     ];

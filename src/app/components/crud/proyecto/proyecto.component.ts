@@ -19,29 +19,50 @@ export class ProyectoComponent {
     fechaInicio: new Date(),
     progreso: 0,
   };
-  
+
   recursosMostrar: Proyecto[] = [];
 
+  ngOnInit(): void {
+    this.obtenerProyectos();
+  }
+
+  private showSuccessMessage(message: string) {
+    console.log(message);
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Exito',
+      detail: message,
+      life: 3000,
+    });
+    this.obtenerProyectos();
+  }
+
+  private showErrorMessage(summary: string, detail: string) {
+    this.messageService.add({
+      severity: 'error',
+      summary: summary,
+      detail: detail,
+      life: 3000,
+    });
+    this.obtenerProyectos();
+  }
+
+  private handleError(error: any, summary: string, detail: string) {
+    console.error(summary, error);
+    this.showErrorMessage(error.name, detail);
+    this.obtenerProyectos();
+  }
+
   agregarProyecto() {
-    if (this.nuevoProyecto.nombre.trim() === '') {
-      console.warn('Nombre de proyecto vacío, no se agrega.');
-      this.messageService.add({
-        severity: 'error',
-        summary: 'Error',
-        detail: 'Nombre de proyecto vacío, no se agrega.',
-      });
-
-      return;
-    }
-
-    if (this.nuevoProyecto.id === 0) {
-      console.warn('ID de recurso vacío, no se agrega.');
-      this.messageService.add({
-        severity: 'error',
-        summary: 'Error',
-        detail: 'ID de recurso vacío, no se agrega.',
-      });
-
+    if (
+      this.nuevoProyecto.nombre.trim() === '' ||
+      this.nuevoProyecto.id === 0
+    ) {
+      console.warn('No se puede agregar un proyecto sin nombre o id');
+      this.showErrorMessage(
+        'Error',
+        'No se puede agregar un proyecto sin nombre o id'
+      );
       return;
     }
 
@@ -54,22 +75,12 @@ export class ProyectoComponent {
           nombre: '',
           fechaInicio: new Date(),
           progreso: 0,
-        }; // Limpiar el formulario
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Éxito',
-          detail: 'Proyecto agregado exitosamente',
-        });
-        this.obtenerProyectos();
+        };
+        this.showSuccessMessage('Proyecto agregado exitosamente');
       })
       .catch((error) => {
         console.error('Error al agregar proyecto', error);
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Error',
-          detail: 'Error al agregar proyecto',
-        });
-        this.obtenerProyectos();
+        this.handleError(error, 'Error al agregar proyecto', error.message);
       });
   }
 
@@ -82,6 +93,7 @@ export class ProyectoComponent {
       })
       .catch((error) => {
         console.error('Error al obtener proyectos', error);
+        this.handleError(error, 'Error al obtener proyectos', error.message);
       });
   }
 
@@ -93,12 +105,10 @@ export class ProyectoComponent {
           console.warn(
             `Proyecto con ID ${this.nuevoProyecto.id} no encontrado.`
           );
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: `Proyecto con ID ${this.nuevoProyecto.id} no encontrado.`,
-          });
-          this.obtenerProyectos();
+          this.showErrorMessage(
+            'Error',
+            `Proyecto con ID ${this.nuevoProyecto.id} no encontrado.`
+          );
           return;
         }
 
@@ -139,21 +149,11 @@ export class ProyectoComponent {
       .deleteProyecto(this.nuevoProyecto.id)
       .then(() => {
         console.log('Proyecto eliminado exitosamente');
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Éxito',
-          detail: 'Proyecto eliminado exitosamente',
-        });
-        this.obtenerProyectos();
+        this.showSuccessMessage('Proyecto eliminado exitosamente');
       })
       .catch((error) => {
         console.error('Error al eliminar proyecto', error);
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Error',
-          detail: 'Error al eliminar proyecto',
-        });
-        this.obtenerProyectos();
+        this.handleError(error, 'Error al eliminar proyecto', error.message);
       });
   }
 }

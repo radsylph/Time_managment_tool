@@ -1,0 +1,24 @@
+<ng-container *ngIf="grafico === 'tiempo1'">
+  <p-dropdown
+    [options]="menuItems"
+    [(ngModel)]="selectedTable"
+    optionLabel="nombre"
+    (onChange)="cambiarTabla()"
+    placeholder="Seleccione una tabla"
+  ></p-dropdown>
+
+  <p-chart type="line" [data]="data" [options]="options"></p-chart>
+</ng-container>
+
+<ng-container *ngIf="grafico === 'tiempo2'">
+  <p-dropdown
+    [options]="menuItems"
+    [(ngModel)]="selectedTable"
+    optionLabel="nombre"
+    (onChange)="cambiarTabla()"
+    placeholder="Seleccione una tabla"
+  ></p-dropdown>
+  <button (click)="getAllRecursos()">test</button>
+
+  <p-chart type="bar" [data]="data" [options]="options"></p-chart>
+</ng-container>

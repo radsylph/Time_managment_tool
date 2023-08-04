@@ -31,3 +31,44 @@
 .button-container button {
   margin: 0 5px;
 }
+
+.table-wrapper {
+  max-height: 200px;
+}
+
+table {
+  width: 100%;
+  border: 2px solid #ddd;
+}
+
+table th,
+table td {
+  border: 2px solid #160202;
+  padding: 8px;
+  text-align: left;
+  font-size: 16px;
+}
+
+table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.table-container {
+  gap: 3px;
+  padding: 10px;
+  margin: 10px;
+  overflow: auto;
+  width: auto;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.flex {
+  display: flex;
+}
