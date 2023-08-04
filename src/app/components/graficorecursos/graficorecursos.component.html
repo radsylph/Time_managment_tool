@@ -1,0 +1,9 @@
+<p-dropdown
+  [options]="menuItems"
+  [(ngModel)]="selectedTable"
+  optionLabel="nombre"
+  (onChange)="cambiarTabla()"
+  placeholder="Seleccione una tabla"
+></p-dropdown>
+
+<p-chart type="bar" [data]="data" [options]="options"></p-chart>

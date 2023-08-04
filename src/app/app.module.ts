@@ -14,7 +14,6 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { ChartModule } from 'primeng/chart';
 
-
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { MenubarModule } from 'primeng/menubar';
@@ -24,7 +23,7 @@ import { ProyectoComponent } from './components/crud/proyecto/proyecto.component
 import { NotificacionComponent } from './components/crud/notificacion/notificacion.component';
 import { TablaComponent } from './components/tabla/tabla.component';
 import { GraficoComponent } from './components/grafico/grafico.component';
-import { Grafico2Component } from './comoponents/grafico2/grafico2.component';
+import { GraficorecursosComponent } from './components/graficorecursos/graficorecursos.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/recurso', pathMatch: 'full' },
@@ -45,7 +44,7 @@ export const routes: Routes = [
     NotificacionComponent,
     TablaComponent,
     GraficoComponent,
-    Grafico2Component,
+    GraficorecursosComponent,
   ],
   imports: [
     BrowserModule,
